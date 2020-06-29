@@ -7,5 +7,4 @@ Comandos para criaçao de projeto django no terminal
 6) Instalar gerenciador de pacote "pip" - $ sudo apt install python-pip
 7) Apos o procedimento deve-se ativar a virtual env -> $ source env/bin/activate
 8) Instalar django na virtual env -> $ pip install django
-9) Intalar python-django common -> $ sudo apt install python-django-common
-10) Criar e iniciar projeto -> $ django-admin startproject "nome_projeto";
+10) Criar e iniciar projeto -> $ django-admin startproject "nome_projetoApp"
