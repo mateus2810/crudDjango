@@ -32,6 +32,8 @@ DATABASES = {
 }
 4) Se houver requirementos pip install -r requirements-dev.txt
 5) Executar o comando pip install mysqlclient
-6)workbeach criar shema
-6) Criar novas migrações com base nas alterações feitas em seus modelos de bd -> $ python3 manage.py makemigrations
+6) Workbeach criar shema(colocar imagem) - colocar mesmo nome do schema no (NAME = /\)
+7) Proximo comando usa o arquivo da pasta migrations e converte pra SQL pra criar e modificar o banco ->$ python3 manage.py migrate 
+8) Criar novas migrações com base nas alterações feitas em seus modelos de bd -> $ python3 manage.py makemigrations
+9) Rodar aplicaçao online -> python3 manage.py runserver
 
