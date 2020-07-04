@@ -30,8 +30,12 @@ DATABASES = {
 4) Se houver requirementos pip install -r requirements-dev.txt
 5) Executar o comando pip install mysqlclient
 6) Workbeach criar shema(colocar imagem) - colocar mesmo nome do schema no (NAME = /\)
+
+
 ![alt text](https://github.com/mateus2810/crudDjango/blob/master/crud/BD/workbeach1.png)
 Foto 2:
+
+
 ![alt text](https://github.com/mateus2810/crudDjango/blob/master/crud/BD/workbeach2.png)
 
 7) Proximo comando usa o arquivo da pasta migrations e converte pra SQL pra criar e modificar o banco ->$ python3 manage.py migrate 
