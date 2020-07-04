@@ -14,26 +14,27 @@ Comandos para criar primeira app
 1) Criar app -> python3 manage.py startapp "nome_app"
 2) Ir ao arquivo settings.py e registrar apps "nome_app" em INSTALLED_APPS
 3) Apos isso definir o banco de dados, se for mysql editar no arquivo settings.py o campo de DATABASES para -> 
+```
 DATABASES = {
     'default': {
-    
-        'ENGINE': 'django.db.backends.mysql',
-        
-        'NAME': 'ES',
-       
-        'USER': 'mateus',
-        
-        'PASSWORD': '91851007',
-        
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'schemaCrud',
+        'USER': 'root',
+        'PASSWORD': '', 
         'HOST': '127.0.0.1',
-        
         'PORT': '3306',
     }
 }
+``` 
+
 4) Se houver requirementos pip install -r requirements-dev.txt
 5) Executar o comando pip install mysqlclient
 6) Workbeach criar shema(colocar imagem) - colocar mesmo nome do schema no (NAME = /\)
+![alt text](https://github.com/mateus2810/crudDjango/blob/master/crud/BD/workbeach1.png)
+Foto 2:
+![alt text](https://github.com/mateus2810/crudDjango/blob/master/crud/BD/workbeach2.png)
+
 7) Proximo comando usa o arquivo da pasta migrations e converte pra SQL pra criar e modificar o banco ->$ python3 manage.py migrate 
-8) Criar novas migrações com base nas alterações feitas em seus modelos de bd -> $ python3 manage.py makemigrations
+8) Criar novas migrações com base nas alterações feitas(necessário apenas quando ouver alteração no banco) em seus modelos de bd -> $ python3 manage.py makemigrations
 9) Rodar aplicaçao online -> python3 manage.py runserver
 
