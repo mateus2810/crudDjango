@@ -141,5 +141,10 @@ class Cliente(models.Model):
 
 Faz a instalação de tudo que é necessario para executar o sistema
 
-1) Se houver requirementos pip install -r requirementS.txt
+1) Instalar virtual env na pasta -> $ python3 -m venv env
+2) Iniciar a maquina virtual env -> $ source env/bin/activate
+3) Executar pip install -r requirements.txt
+
+### CRIA ARQUIVO REQUIREMENT COM SUA APLICAÇÕES UTILIZADAS
+pip freeze > requirements.txt
 
