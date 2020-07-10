@@ -6,7 +6,7 @@
 5) Se nao funcionar usar o comando -> $ sudo apt-get install python3.6-venv
 6) Instalar gerenciador de pacote "pip" - $ sudo apt install python-pip
 7) Apos o procedimento deve-se ativar a virtual env -> $ source env/bin/activate
-8) Instalar django na virtual env -> $ pip install django
+8) Instalar django na virtual env -> $ pip3 install --upgrade django
 10) Criar e iniciar projeto -> $ django-admin startproject "nome_projetoApp"
 
 
@@ -89,10 +89,10 @@ urlpatterns = [
 ```
 from django.shortcuts import render, redirect
 from .models import *
-from projetoApp.models import *
+from nomeDaAplicacao.models import *
 from django.contrib import messages
 #from . import models
-from .forms import *
+#from .forms import *
 
 def cliente(request):
     cliente = Cliente.objects.all()
