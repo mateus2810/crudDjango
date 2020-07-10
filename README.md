@@ -1,4 +1,4 @@
-Comandos para criaçao de projeto django no terminal
+### Comandos para criaçao de projeto django no terminal
 1) Verificar versao do python -> $ python3
 2) Criar pasta do projeto -> $ mkdidr "nome_do_projeto"
 3) Entrar na pasta do projeto -> $ cd "nome_do_projeto"
@@ -10,7 +10,7 @@ Comandos para criaçao de projeto django no terminal
 10) Criar e iniciar projeto -> $ django-admin startproject "nome_projetoApp"
 
 
-Comandos para criar primeira app
+### Comandos para criar primeira app
 1) Criar app -> python3 manage.py startapp "nome_app"
 2) Ir ao arquivo settings.py e registrar apps "nome_app" em INSTALLED_APPS
 3) Apos isso definir o banco de dados, se for mysql editar no arquivo settings.py o campo de DATABASES para -> 
@@ -42,3 +42,96 @@ Foto 2:
 8) Criar novas migrações com base nas alterações feitas(necessário apenas quando ouver alteração no banco) em seus modelos de bd -> $ python3 manage.py makemigrations
 9) Rodar aplicaçao online -> python3 manage.py runserver
 
+
+
+### CRIAÇÃO DE CRUD COM DJANGO
+1) Registrar app em settings na pasta do projeto
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'nomeDaAplicacao',
+    'bootstrapform',
+]
+```
+2)Criar uma nova url para o projeto em urls.py
+```
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('nomeDaAplicacao.urls')),
+]
+```
+
+3) Na pasta da aplicação crie um arquivo chamado urls.py e coloque o seguinte código
+```
+from django.contrib import admin
+from django.urls import path, include
+from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+
+
+urlpatterns = [
+
+    path('cliente/', views.cliente, name='cliente'),
+    path('home/', views.home, name='home'),
+    path('listarCliente/', views.listarCliente, name='listarCliente'),
+    path('excluirCliente/<pk>', views.excluirCliente, name='excluirCliente'),
+    path('editarCliente/<pk>', views.editarCliente, name='editarCliente')
+
+]
+```
+4) Apos isto entrar na views da app digitar o codigo abaixo
+```
+from django.shortcuts import render, redirect
+from .models import *
+from projetoApp.models import *
+from django.contrib import messages
+#from . import models
+from .forms import *
+
+def cliente(request):
+    cliente = Cliente.objects.all()
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Cliente cadastrado com sucesso')
+            return redirect('cliente')
+    form = ClienteForm()
+    context = { 'form': form,
+                'cliente': cliente
+                        }
+    return render(request, 'cliente.html', context)
+
+def home(request):
+
+    return render(request, 'home.html')
+
+
+  ```  
+5) Criar models Cliente para criar objetos do banco de dados para armazenar
+
+```
+class Cliente(models.Model):
+    nome = models.CharField(('Nome'), max_length=40, null=True, blank=True)
+    cidade = models.CharField(('Cidade'), max_length=80, null=True, blank=True)
+    bairro = models.CharField(('Bairro'), max_length=20, null=True, blank=True)
+    rua = models.CharField(('Rua'), max_length=80, null=True, blank=True)
+    numero = models.CharField(('Numero'), max_length=20, null=True, blank=True)
+    cep = models.CharField(('CEP'), max_length=15, null=True, blank=True)
+    cpf = models.CharField(('CPF/CNPJ'), max_length=15, null=True, blank=True)
+    contato = models.CharField(('Contato'), max_length=20, null=True, blank=True)
+    email = models.CharField(('Email'), max_length=20, null=True, blank=True)
+
+    class Meta:
+        verbose_name = ("Cliente")
+
+    def __str__(self):
+        return self.nome
+ ```
+6) Dentro da pasta Produto vc vai criar uma pasta chamada templates e vai criar o arquivo home.html
