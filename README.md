@@ -27,7 +27,7 @@ DATABASES = {
 }
 ``` 
 
-4) Se houver requirementos pip install -r requirements-dev.txt
+
 5) Executar o comando pip install mysqlclient
 6) Workbeach criar shema(colocar imagem) - colocar mesmo nome do schema no (NAME = /\)
 
@@ -135,3 +135,11 @@ class Cliente(models.Model):
         return self.nome
  ```
 6) Dentro da pasta Produto vc vai criar uma pasta chamada templates e vai criar o arquivo home.html
+
+
+### CLONAR E NAO NECESSITAR DE TODA INSTAÇÃO
+
+Faz a instalação de tudo que é necessario para executar o sistema
+
+1) Se houver requirementos pip install -r requirementS.txt
+
