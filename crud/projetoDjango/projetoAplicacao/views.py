@@ -3,10 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from .models import *
-from projetoApp.models import *
+from projetoAplicacao.models import *
 from django.contrib import messages
 #from . import models
-from .forms import *
+#from .forms import *
 
 # Create your views here.
 
